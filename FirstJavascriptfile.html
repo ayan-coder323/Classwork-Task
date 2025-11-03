@@ -1,0 +1,49 @@
+index.html
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>3 Types of JavaScript Demo</title>
+
+  <!-- 1) EXTERNAL SCRIPT -->
+  <!-- 'defer' makes sure the HTML is parsed before app.js runs -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <h1>JavaScript: External, Internal, Inline</h1>
+
+  <!-- External -->
+  <section>
+    <h2>External Script</h2>
+    <button id="extBtn">Show External Message</button>
+    <p id="extMsg"></p>
+  </section>
+  <hr />
+
+  <!-- Internal -->
+  <section>
+    <h2>Internal Script</h2>
+    <button id="intBtn">Show Internal Message</button>
+    <p id="intMsg"></p>
+  </section>
+  <hr />
+
+  <!-- Inline -->
+  <section>
+    <h2>Inline Script</h2>
+    <button onclick="document.getElementById('inlMsg').textContent='Hi this is Inline Javascript'">
+      Show Inline Message
+    </button>
+    <p id="inlMsg"></p>
+  </section>
+
+  <!-- 2) INTERNAL SCRIPT -->
+  <script>
+    // Wire up the internal button
+    document.getElementById('intBtn').addEventListener('click', () => {
+      document.getElementById('intMsg').textContent = 'Hi this is Internal javascript';
+    });
+  </script>
+</body>
+</html>
