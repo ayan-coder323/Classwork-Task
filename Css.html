@@ -23,7 +23,16 @@
     </div>
     <h2><b>Inline CSS</b></h2>
     <div style="background-color: rgb(148, 197, 148);">
-        <p>Styled by <strong>external</strong> CSS in the <code>&lt;style&gt;</code> tag of this page</p>
+        <p>Styled by <strong>external</strong> CSS in the <code>style=""</code> tag of this page</p>
+    </div>
+    <h2><b>Specificity Showdown (Who wins?)</b></h2>
+    <div>
+        <p>The same element is targeted by external,internal and inline rules:</p>
+        <ul>
+            <li>External sets it to <strong>red</strong></li>
+            <li>Internal tries to make it <strong>green</strong></li>
+            <li>Inline forces it to the <strong>assigned color</strong></li>
+        </ul>
     </div>
 </body>
 
