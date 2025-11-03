@@ -1,28 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
-        <title>Home Task.</title>
-        <style>
-            h1{
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            animation: slideDown 1.2s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        ul {
+            list-style-type: none;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        a {
+            display: block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #222;
+        }
+
+        /* Floating Animation Background Circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-40px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
                 text-align: center;
-                color: rgb(133, 139, 85);
             }
-            body{
-                background-color: bisque;
+
+            a {
+                font-size: 1rem;
+                padding: 12px 25px;
             }
-            li{
-                color: black;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Welcome !!!!</h1>
-        <ul type="square">
-           <li><a target="_blank" href="Table.html">Table One</a></li>
-           <li><a target="_blank" href="MyInfo.html">My Info</a></li>
-           <li><a target="_blank" href="Css.html">Last Class's Work</a></li>
-        </ul>
+        }
+    </style>
+</head>
+<body>
+
+    <div class="circle" style="width:120px; height:120px; top:10%; left:10%; background:#fff;"></div>
+    <div class="circle" style="width:200px; height:200px; bottom:10%; right:15%; background:#fff;"></div>
+
+    <h1 id="welcomeText">Welcome !!!</h1>
+
+    <ul>
+        <li><a target="_blank" href="Table.html">📊 Table One</a></li>
+        <li><a target="_blank" href="MyInfo.html">👤 My Info</a></li>
+        <li><a target="_blank" href="Css.html">🎨 Last Class's Work</a></li>
+    </ul>
+
+    <script>
+        // Small JavaScript Animation: Dynamic Welcome Text
+        const welcomeText = document.getElementById("welcomeText");
+        const messages = ["Welcome !!!", "Explore Your Tasks 🚀", "Have a Great Day 😄"];
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % messages.length;
+            welcomeText.style.opacity = 0;
+            setTimeout(() => {
+                welcomeText.textContent = messages[index];
+                welcomeText.style.opacity = 1;
+            }, 500);
+        }, 3000);
+    </script>
+
 </body>
 </html>
